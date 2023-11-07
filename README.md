@@ -21,6 +21,6 @@ Github Project digunakan untuk melacak dan _update progres_ pengerjaan dan manaj
 - Nama: Big-R
 - Anggota:
 
-  - Ahmad Fatan
-  - Muhammad Fajri
-  - Rio Agasta
+  - Ahmad Fatan (231524034)
+  - Muhammad Fajri (231524053)
+  - Rio Agasta (231524061)
