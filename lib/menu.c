@@ -138,8 +138,8 @@ void playMenu()
   int mode;
   int bot = 0;
   int board;
-  char *namaplayer1 = (char *)malloc(25);
-  char *namaplayer2 = (char *)malloc(25);
+  char *playername1 = (char *)malloc(25);
+  char *playername2 = (char *)malloc(25);
   bool nameErr;
 
   selectGameMode(0, &mode);
@@ -151,17 +151,17 @@ void playMenu()
   selectBoard(0, &board);
   system("cls");
   printf("Player 1\n");
-  inputUsername(namaplayer1);
+  inputUsername(playername1);
   if (mode == 2)
   {
     printf("Player 2\n");
-    inputUsername(namaplayer2);
+    inputUsername(playername2);
   }
   else
   {
-    namaplayer2 = "";
+    playername2 = "";
   }
-  tictactoe(mode, bot, board, namaplayer1, namaplayer2);
+  tictactoe(mode, bot, board, playername1, playername2);
 }
 
 /**
