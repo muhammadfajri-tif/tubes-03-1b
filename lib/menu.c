@@ -93,8 +93,6 @@ void about()
 {
   system("cls");
 
-  int opsi;
-
   printf("====================================\n");
   printf("|\tTic Tac Toe by BIG R\t   |\n");
   printf("====================================\n");
@@ -102,11 +100,11 @@ void about()
   printf("\n\t This Game Made by \n");
   printf("Ahmad Fatan Haidar \t\t231524034\n");
   printf("Muhammad Fajri Ghifari Salman   231524053\n");
-  printf("Rio Agasta \t\t\t231524061");
-  printf("\n\n0.Back\n\n");
+  printf("Rio Agasta \t\t\t231524061\n");
 
-  printf("Please insert a number: ");
-  scanf("%d", &opsi);
+  printf("\nPress ENTER to go back ");
+  getchar();
+  getchar();
 
   menu(0);
 }
