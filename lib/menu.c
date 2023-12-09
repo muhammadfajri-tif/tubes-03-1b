@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "game.c"
+#include "score.c"
 
 /**
  * Procedure for setting game mode whether it's player vs player OR player vs computer.
@@ -115,15 +116,16 @@ void about()
  */
 void scoreMenu()
 {
-  // TODO: implementasi file manipulation
-  printf("====================================\n");
-  printf("|\tTic Tac Toe by BIG R\t   |\n");
-  printf("====================================\n");
-  printf("     +++++High Score List+++++\n\n");
-  printf("1. (Player 1) (Score)\n");
-  printf("2. (Player 2) (Score)\n");
-  printf("3. (Player 3) (Score)\n");
-  printf("\n\n0.Back\n");
+  system("cls");
+
+  printf("\n\t\t\033[1;32mPAPAN PERINGKAT\033[1;0m\n");
+  loadScoreboard();
+
+  printf("\n\nPress ENTER to go back ");
+  getchar();
+  getchar();
+
+  menu(0);
 }
 
 /**
