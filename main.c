@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lib/menu.c"
 
-int main() { 
-  
-  return 0; 
+int main()
+{
+  menu(0);
+  return 0;
 }
