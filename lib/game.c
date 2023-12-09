@@ -322,9 +322,9 @@ Move findBestMove(Board **tempBoard)
 
 bool rowCrossed(Board **board)
 {
-  int count = 0;
   for (int i = 0; i < side; i++)
   {
+    int count = 0;
     for (int j = 0; j < side - 1; j++)
     {
       if (board[i][j].str == board[i][j + 1].str && board[i][j].str != " ")
@@ -346,9 +346,9 @@ bool rowCrossed(Board **board)
 
 bool colCrossed(Board **board)
 {
-  int count = 0;
   for (int i = 0; i < side; i++)
   {
+    int count = 0;
     for (int j = 0; j < side - 1; j++)
     {
       if (board[j][i].str == board[j + 1][i].str && board[j][i].str != " ")
@@ -407,7 +407,7 @@ bool diagCrossed(Board **board)
         break;
       }
 
-      if (board[j][i + j].str == board[j + 1][i + j + 1].str && board[i][i + j].str != " ")
+      if (board[j][i + j].str == board[j + 1][i + j + 1].str && board[j][i + j].str != " ")
       {
         count++;
         if (count == winCondition - 1)
@@ -485,7 +485,7 @@ bool gameOver(Board **board)
 /**
  * Procedure for determine which player wins the game.
  */
-void declareWinner(int whoseTurn, char *namaplayer)
+void declareWinner(int whoseTurn, char *playername)
 {
   if (whoseTurn == COMPUTER)
   {
@@ -493,7 +493,7 @@ void declareWinner(int whoseTurn, char *namaplayer)
   }
   else
   {
-    printf("%s has won the game\n", namaplayer);
+    printf("%s has won the game\n", playername);
   }
 }
 
@@ -708,6 +708,11 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
         printf("Cell %d is already occupied. Try again.\n", move);
       }
     }
+  }
+
+  if (!gameOver(board) && moveCount == side * side)
+  {
+    printf("The game has ended in a draw\n");
   }
 }
 
