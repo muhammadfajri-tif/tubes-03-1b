@@ -3,6 +3,13 @@
 #include "../include/boolean.h"
 #include "board.h"
 
+#define PLAYER1 1
+#define PLAYER2 2
+#define COMPUTER 3
+
+#define PLAYER1SYMBOL "X"
+#define PLAYER2SYMBOL "O" // Also used for bot/computer
+
 /**
  * Board position.
  */

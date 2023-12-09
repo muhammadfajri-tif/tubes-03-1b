@@ -2,13 +2,6 @@
 #define game_H
 #include "bot.h"
 
-#define PLAYER1 1
-#define PLAYER2 2
-#define COMPUTER 3
-
-#define PLAYER1SYMBOL "X"
-#define PLAYER2SYMBOL "O" // Also used for bot/computer
-
 bool rowCrossed(Board **board);
 
 bool colCrossed(Board **board);
