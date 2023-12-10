@@ -15,7 +15,7 @@ void selectGameMode(bool err, int *opsiMode)
   printf("   +++++Choose Game Mode+++++\n\n");
   if (err)
   {
-    printf("ERROR: Please choose a number between 1-2!\n\n");
+    printf("\033[1;31m[ERR]\t\033[1;0mPlease choose a number between 1-2!\n\n");
   }
   printf("1. Player vs Computer\n");
   printf("2. Player vs Player\n");
@@ -43,7 +43,7 @@ void selectBot(bool err, int *opsiBot)
   printf("     +++++Choose Difficulty+++++\n\n");
   if (err)
   {
-    printf("ERROR: Please choose a number between 1-2!\n\n");
+    printf("\033[1;31m[ERR]\t\033[1;0mPlease choose a number between 1-2!\n\n");
   }
   printf("1. Easy Computer\n");
   printf("2. Medium Computer\n");
@@ -72,7 +72,7 @@ void selectBoard(bool err, int *opsiBoard)
   printf("    +++++Choose Board Size+++++\n\n");
   if (err)
   {
-    printf("ERROR: Please choose a number between 1-3!\n\n");
+    printf("\033[1;31m[ERR]\t\033[1;0mPlease choose a number between 1-3!\n\n");
   }
   printf("1. 3x3 Board\n");
   printf("2. 5x5 Board\n");
@@ -178,7 +178,7 @@ void menu(bool err)
   printf("\t+++++Main Menu+++++\n\n");
   if (err)
   {
-    printf("ERROR: Please choose a number between 1-4!\n\n");
+    printf("\033[1;31m[ERR]\t\033[1;0mPlease choose a number between 1-4!\n\n");
   }
   printf("1. Play\n");
   printf("2. High Score\n");
