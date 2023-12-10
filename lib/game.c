@@ -316,7 +316,6 @@ void tictactoe(int gameMode, int botDiff, int boardSize, char *player1, char *pl
     break;
   }
 
-  int moves[side * side];
   Board **board = createBoard(side);
   emptyBoard(board);
   Board **hintBoard = createBoard(side);

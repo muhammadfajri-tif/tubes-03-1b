@@ -231,11 +231,6 @@ int minimax(Board **tempBoard, int depth, int maxDepth, bool isMax)
     return score;
   }
 
-  // if (score == -10)
-  // {
-  //     return score;
-  // }
-
   if (isMovesLeft(tempBoard) == false)
   {
     return 0;
@@ -289,10 +284,24 @@ int minimax(Board **tempBoard, int depth, int maxDepth, bool isMax)
   }
 }
 
-Move findBestMove(Board **tempBoard)
+Move findBestMove(Board **tempBoard, int botDiff)
 {
   int bestVal = -1000;
-  int maxDepth = 3;
+  int maxDepth;
+  switch (botDiff)
+  {
+  case 1:
+    maxDepth = 1;
+    break;
+  case 2:
+    maxDepth = 2;
+    break;
+  case 3:
+    maxDepth = 3;
+    break;
+  default:
+    break;
+  }
   Move bestMove;
   bestMove.row = -1;
   bestMove.col = -1;
@@ -324,73 +333,66 @@ void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int 
 {
   int moveCount = 0;
   int row, col;
-  if (botDiff == 1)
+  while (!gameOver(board) && moveCount != side * side)
   {
-    /* code */
-  }
-  else if (botDiff == 2)
-  {
-    while (!gameOver(board) && moveCount != side * side)
+    if (whoseTurn == PLAYER1)
     {
-      if (whoseTurn == PLAYER1)
+      int move;
+      inputMove(&move, player);
+      row = (move - 1) / side;
+      col = (move - 1) % side;
+      if (board[row][col].str == " ")
       {
-        int move;
-        inputMove(&move, player);
-        row = (move - 1) / side;
-        col = (move - 1) % side;
-        if (board[row][col].str == " ")
-        {
-          board[row][col].str = PLAYER1SYMBOL;
-          system("cls");
-          showBoard(board, hintBoard);
-          moveCount++;
-          if (gameOver(board))
-          {
-            declareWinner(PLAYER1, player);
-            return;
-          }
-          whoseTurn = COMPUTER;
-        }
-        else
-        {
-          printf("Cell %d is already occupied. Try again.\n", move);
-        }
-      }
-      else if (whoseTurn == COMPUTER)
-      {
-        Board **tempBoard = createBoard(side);
-        for (int i = 0; i < side; i++)
-        {
-          for (int j = 0; j < side; j++)
-          {
-            if (board[i][j].str == "X")
-            {
-              tempBoard[i][j].str = "x";
-            }
-            else if (board[i][j].str == "O")
-            {
-              tempBoard[i][j].str = "o";
-            }
-            else if (board[i][j].str == " ")
-            {
-              tempBoard[i][j].str = "_";
-            }
-          }
-        }
-        Move thisMove = findBestMove(tempBoard);
-        row = thisMove.row;
-        col = thisMove.col;
-
-        board[row][col].str = PLAYER2SYMBOL;
+        board[row][col].str = PLAYER1SYMBOL;
         system("cls");
         showBoard(board, hintBoard);
         moveCount++;
         if (gameOver(board))
         {
-          declareWinner(COMPUTER, "");
+          declareWinner(PLAYER1, player);
+          return;
         }
-        whoseTurn = PLAYER1;
+        whoseTurn = COMPUTER;
       }
+      else
+      {
+        printf("Cell %d is already occupied. Try again.\n", move);
+      }
+    }
+    else if (whoseTurn == COMPUTER)
+    {
+      Board **tempBoard = createBoard(side);
+      for (int i = 0; i < side; i++)
+      {
+        for (int j = 0; j < side; j++)
+        {
+          if (board[i][j].str == "X")
+          {
+            tempBoard[i][j].str = "x";
+          }
+          else if (board[i][j].str == "O")
+          {
+            tempBoard[i][j].str = "o";
+          }
+          else if (board[i][j].str == " ")
+          {
+            tempBoard[i][j].str = "_";
+          }
+        }
+      }
+      Move thisMove = findBestMove(tempBoard, botDiff);
+      row = thisMove.row;
+      col = thisMove.col;
+
+      board[row][col].str = PLAYER2SYMBOL;
+      system("cls");
+      showBoard(board, hintBoard);
+      moveCount++;
+      if (gameOver(board))
+      {
+        declareWinner(COMPUTER, "");
+      }
+      whoseTurn = PLAYER1;
     }
   }
 

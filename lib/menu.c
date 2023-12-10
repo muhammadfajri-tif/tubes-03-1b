@@ -46,13 +46,14 @@ void selectBot(bool err, int *opsiBot)
     printf("ERROR: Please choose a number between 1-2!\n\n");
   }
   printf("1. Easy Computer\n");
-  printf("2. Hard Computer\n");
+  printf("2. Medium Computer\n");
+  printf("3. Hard Computer\n");
   printf("\n0.Back\n");
 
-  printf("Please choose a number between 1-2: ");
+  printf("Please choose a number between 1-3: ");
   scanf("%d", &(*opsiBot));
 
-  if (*opsiBot != 1 && *opsiBot != 2)
+  if (*opsiBot != 1 && *opsiBot != 2 && *opsiBot != 3)
   {
     selectBot(1, opsiBot);
   }

@@ -24,7 +24,7 @@ int evaluate(Board **tempBoard);
 
 int minimax(Board **tempBoard, int depth, int maxDepth, bool isMax);
 
-Move findBestMove(Board **tempBoard);
+Move findBestMove(Board **tempBoard, int botDiff);
 
 void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int botDiff);
 
