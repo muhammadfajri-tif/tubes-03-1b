@@ -1,6 +1,7 @@
 #include <time.h>
 #include "bot.h"
 #include "board.c"
+#include "score.c"
 
 /**
  * Declare global variable for set winner condition.
@@ -329,6 +330,72 @@ Move findBestMove(Board **tempBoard, int botDiff)
   return bestMove;
 }
 
+/**
+ * Procedure for manage scoring mechanism.
+ *
+ * base score:
+ * - bot (easy)   = +5 point
+ * - bot (medium) = +10 point
+ * - bot (hard)   = +20 point
+ * - human        = +20 point
+ *
+ * Scoring system based on board size:
+ * - 3x3: base score muliply by 1 (*1)
+ * - 5x5: base score muliply by 2 (*2)
+ * - 7x7: base score muliply by 3 (*3)
+ */
+void setScore(int mode, int bot, int board, char *player, bool isWin)
+{
+  // base score
+  const int botEasy = 5, botMedium = 10, botHard = 20, human = 20;
+
+  int totalScore, multiplyBy;
+
+  // check the board size
+  switch (board)
+  {
+  case 3:
+    multiplyBy = 1;
+    break;
+  case 5:
+    multiplyBy = 2;
+    break;
+  case 7:
+    multiplyBy = 3;
+    break;
+  default:
+    multiplyBy = 0;
+    break;
+  }
+
+  // if player vs bot/computer
+  if (mode == 1)
+  {
+    // check bot difficulty
+    switch (bot)
+    {
+    case 1:
+      totalScore = botEasy * multiplyBy;
+      break;
+    case 2:
+      totalScore = botMedium * multiplyBy;
+      break;
+    case 3:
+      totalScore = botHard * multiplyBy;
+      break;
+    default:
+      break;
+    }
+  }
+
+  // if player vs player
+  if (mode == 2)
+    totalScore = human * multiplyBy;
+
+  // if player win, set the score; but if lose set immediately to 0
+  isWin ? updatePlayerScore(player, totalScore) : updatePlayerScore(player, 0);
+}
+
 void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int botDiff)
 {
   int moveCount = 0;
@@ -349,6 +416,8 @@ void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int 
         moveCount++;
         if (gameOver(board))
         {
+          // set score for pvc, botDiff, boardSize, player-username, and the player is win.
+          setScore(1, botDiff, side, player, true);
           declareWinner(PLAYER1, player);
           return;
         }
@@ -390,6 +459,8 @@ void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int 
       moveCount++;
       if (gameOver(board))
       {
+        // set score for pvc, botDiff, boardSize, player-username, and the player is lose.
+        setScore(1, botDiff, side, player, false);
         declareWinner(COMPUTER, "");
       }
       whoseTurn = PLAYER1;
