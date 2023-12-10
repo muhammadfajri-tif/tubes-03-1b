@@ -255,6 +255,10 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
         if (gameOver(board))
         {
           declareWinner(PLAYER1, player1);
+          // set score for player 1, boardSize, player-username, and the player is win.
+          setScore(2, 0, side, player1, true);
+          // set score for player 2, boardSize, player-username, and the player is lose.
+          setScore(2, 0, side, player2, false);
           return;
         }
         whoseTurn = PLAYER2;
@@ -279,6 +283,10 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
         if (gameOver(board))
         {
           declareWinner(PLAYER2, player2);
+          // set score for player 2, boardSize, player-username, and the player is win.
+          setScore(2, 0, side, player2, true);
+          // set score for player 1, boardSize, player-username, and the player is lose.
+          setScore(2, 0, side, player1, false);
           return;
         }
         whoseTurn = PLAYER1;
