@@ -28,6 +28,9 @@ void selectGameMode(bool err, int *opsiMode)
   {
     selectGameMode(1, opsiMode);
   }
+  else if (*opsiMode == 0){
+    playMenu();
+  }
 }
 
 /**
