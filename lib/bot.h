@@ -1,6 +1,7 @@
 #if !defined(bot_H)
 #define bot_H
 #include "../include/boolean.h"
+#include "../include/currentos.h"
 #include "board.h"
 
 #define PLAYER1 1
