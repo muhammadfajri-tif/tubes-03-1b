@@ -120,7 +120,7 @@ void scoreMenu()
 {
   system("cls");
 
-  printf("\n\t\t\033[1;32mPAPAN PERINGKAT\033[1;0m\n");
+  printf("\n\t\t\033[1;32mLEADERBOARD\033[1;0m\n");
   loadScoreboard();
 
   printf("\n\nPress ENTER to go back ");

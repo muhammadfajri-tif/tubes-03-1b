@@ -16,20 +16,20 @@ FILE *generateFile(char fileName[], char mode[])
 
   if (file == NULL)
   {
-    printf("\033[1;33m[WARN]\t\033[1;0mFile papan peringkat pemain tidak dapat ditemukan.\n");
-    printf("\033[1;34m[INFO]\t\033[1;0mMembuat file untuk menyimpan papan peringkat pemain.\n");
+    printf("\033[1;33m[WARN]\t\033[1;0mFile for storing players' score not found!\n");
+    printf("\033[1;34m[INFO]\t\033[1;0mCreating leaderboard file.\n");
     file = fopen(DEFAULT_SCOREBOARD_FILE, "wb");
 
     if (file == NULL)
       stillError = 1;
 
     if (!stillError)
-      printf("\033[1;34m[INFO]\t\033[1;0mBerhasil membuat file papan peringkat.\n");
+      printf("\033[1;34m[INFO]\t\033[1;0mSuccessfully created leaderboard file.\n");
   }
 
   if (stillError)
   {
-    printf("\033[1;31m[ERR]\t\033[1;0mGagal membuat file. Periksa kembali perizinan file dan/atau penyimpanan anda.\n");
+    printf("\033[1;31m[ERR]\t\033[1;0mFailed to create leaderboard file. Please check your storage/file's permission.\n");
     exit(1);
   }
   return file;
@@ -122,14 +122,23 @@ void updatePlayerScore(char const *username, int score)
  */
 void renderScoreboardTable(PlayerScore *player, int size)
 {
-  printf("\n+------+---------------------------+-------+\n");
-  printf("| Rank | Username                  | Score |\n");
-  printf("+------+---------------------------+-------+\n");
-  for (int i = 0; i < size; i++)
+  if (size != 0)
   {
-    printf("| %d    | %-25s | %3d   |\n", i + 1, (player + i)->username, (player + i)->score);
+    printf("\n+-------+---------------------------+-------+\n");
+    printf("| Rank  | Username                  | Score |\n");
+    printf("+-------+---------------------------+-------+\n");
+    for (int i = 0; i < size; i++)
+    {
+      printf("| %d\t| %-25s | %3d   |\n", i + 1, (player + i)->username, (player + i)->score);
+    }
+    printf("+-------+---------------------------+-------+\n");
   }
-  printf("+------+---------------------------+-------+\n");
+  else
+  {
+    printf("\n+-----------------------------------------------+\n");
+    printf("|\t\tNo Data Available\t\t|\n");
+    printf("+-----------------------------------------------+\n");
+  }
 }
 
 /**
