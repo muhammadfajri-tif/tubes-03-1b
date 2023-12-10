@@ -320,27 +320,6 @@ Move findBestMove(Board **tempBoard)
   return bestMove;
 }
 
-/**
- * Procedure for randomize bot's movement.
- */
-void randomizeMove(int moves[])
-{
-  srand(time(NULL));
-
-  for (int i = 0; i < side * side; i++)
-  {
-    moves[i] = i;
-  }
-
-  for (int i = 0; i < side * side; i++)
-  {
-    int randomIdx = rand() % (side * side);
-    int temp = moves[i];
-    moves[i] = moves[randomIdx];
-    moves[randomIdx] = temp;
-  }
-}
-
 void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int botDiff)
 {
   int moveCount = 0;

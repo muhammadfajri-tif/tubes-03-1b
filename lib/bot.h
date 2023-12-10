@@ -26,11 +26,6 @@ int minimax(Board **tempBoard, int depth, int maxDepth, bool isMax);
 
 Move findBestMove(Board **tempBoard);
 
-/**
- * Procedure for randomize bot's movement.
- */
-void randomizeMove(int moves[]);
-
 void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int botDiff);
 
 #endif // bot_H
