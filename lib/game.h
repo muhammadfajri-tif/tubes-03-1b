@@ -25,6 +25,11 @@ void inputUsername(char *username);
  */
 void inputMove(int *move, char *playername);
 
+/**
+ * Procedure for rematch the game.
+ */
+void rematch(bool err, int mode, int bot, int board, char *player1, char *player2);
+
 void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int whoseTurn);
 
 void tictactoe(int mode, int bot, int board, char *player1, char *player2);
