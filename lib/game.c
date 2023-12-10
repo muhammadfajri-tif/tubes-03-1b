@@ -170,11 +170,11 @@ void declareWinner(int whoseTurn, char *playername)
 {
   if (whoseTurn == COMPUTER)
   {
-    printf("Computer has won the game\n");
+    printf("\033[1;34m[INFO]\t\033[1;0mComputer has won the game\n");
   }
   else
   {
-    printf("%s has won the game\n", playername);
+    printf("\033[1;34m[INFO]\t\033[1;0m%s has won the game\n", playername);
   }
 }
 
@@ -202,7 +202,7 @@ void inputUsername(char *username)
     // jika ada comma pada username
     if (err)
     {
-      printf("Error! Username is not valid, Please dont use Comma (,) or Spaces in your username.\n");
+      printf("\033[1;31m[ERR]\t\033[1;0m Username is not valid, Please dont use Comma (,) or Spaces in your username.\n");
     }
   } while (err);
 }
@@ -218,7 +218,7 @@ void inputMove(int *move, char *playername)
   val = scanf("%d", move);
   if (val == 0)
   {
-    printf("Please enter a number!\n");
+    printf("\033[1;33m[WARN]\t\033[1;0mPlease enter a number!\n");
     int c;
     while ((c = getchar()) != '\n' && c != EOF)
       ;
@@ -228,7 +228,7 @@ void inputMove(int *move, char *playername)
   {
     if (*move < 1 || *move > maxNumber)
     {
-      printf("Please enter a number between 1-%d!\n", maxNumber);
+      printf("\033[1;33m[WARN]\t\033[1;0mPlease enter a number between 1-%d!\n", maxNumber);
       inputMove(move, playername);
     }
   }
@@ -261,7 +261,7 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
       }
       else
       {
-        printf("Cell %d is already occupied. Try again.\n", move);
+        printf("\033[1;33m[WARN]\t\033[1;0mCell %d is already occupied. Try again.\n", move);
       }
     }
     else if (whoseTurn == PLAYER2)
@@ -285,14 +285,14 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
       }
       else
       {
-        printf("Cell %d is already occupied. Try again.\n", move);
+        printf("\033[1;33m[WARN]\t\033[1;0mCell %d is already occupied. Try again.\n", move);
       }
     }
   }
 
   if (!gameOver(board) && moveCount == side * side)
   {
-    printf("\n\nThe game has ended in a draw\n");
+    printf("\n\n\033[1;34m[INFO]\t\033[1;0mThe game has ended in a draw\n");
   }
 }
 
