@@ -340,9 +340,9 @@ Move findBestMove(Board **tempBoard, int botDiff)
  * - human        = +20 point
  *
  * Scoring system based on board size:
- * - 3x3: base score muliply by 1 (*1)
- * - 5x5: base score muliply by 2 (*2)
- * - 7x7: base score muliply by 3 (*3)
+ * - 3x3: base score multiplied by 1 (*1)
+ * - 5x5: base score multiplied by 2 (*2)
+ * - 7x7: base score multiplied by 3 (*3)
  */
 void setScore(int mode, int bot, int board, char *player, bool isWin)
 {
