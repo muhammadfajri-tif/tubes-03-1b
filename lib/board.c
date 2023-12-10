@@ -140,5 +140,3 @@ void emptyBoard(Board **board)
     }
   }
 }
-
-int foo;
