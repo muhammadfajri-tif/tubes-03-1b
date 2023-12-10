@@ -1,13 +1,13 @@
-# Created by https://www.toptal.com/developers/gitignore/api/c,visualstudiocode,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=c,visualstudiocode,macos
+# Created by https://www.toptal.com/developers/gitignore/api/c,c++
+
+## Project ##
+PlayersScoreboard*
+PlayersScoreboard.*
+*.dat
 
 ### C ###
 # Prerequisites
 *.d
-
-# output dir
-out/
-dist/
 
 # Object files
 *.o
@@ -43,6 +43,7 @@ dist/
 *.i*86
 *.x86_64
 *.hex
+out/
 
 # Debug files
 *.dSYM/
@@ -59,56 +60,24 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-### macOS ###
-# General
-.DS_Store
-.AppleDouble
-.LSOverride
+### C++ ###
+# Prerequisites
 
-# Icon must end with two \r
-Icon
+# Compiled Object files
+*.slo
 
+# Precompiled Headers
 
-# Thumbnails
-._*
+# Compiled Dynamic libraries
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
+# Fortran module files
+*.mod
+*.smod
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Compiled Static libraries
+*.lai
 
-### macOS Patch ###
-# iCloud generated files
-*.icloud
+# code editor configuration
+.vscode/
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-
-# Local History for Visual Studio Code
-.history/
-
-# Built Visual Studio Code Extensions
-*.vsix
-
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/c,visualstudiocode,macos
+# End of https://www.toptal.com/developers/gitignore/api/c,c++
