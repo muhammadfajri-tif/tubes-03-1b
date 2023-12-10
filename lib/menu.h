@@ -18,11 +18,6 @@ void selectBot(bool err, int *opsiBot);
 void selectBoard(bool err, int *opsiBoard);
 
 /**
- * Procedure for rematch the game.
- */
-void rematch(bool err, int mode, int bot, int board, char *player1, char *player2);
-
-/**
  * Procedure for display information about the games.
  */
 void about();
