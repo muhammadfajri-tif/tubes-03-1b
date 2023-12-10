@@ -202,7 +202,7 @@ void inputUsername(char *username)
     // jika ada comma pada username
     if (err)
     {
-      printf("Error! Username is not valid, Please dont use Comma (,) or Spaces in your username.\n");
+      printf("\033[1;31m[ERR]\t\033[1;0mUsername is not valid, Please dont use Comma (,) or Spaces in your username.\n");
     }
   } while (err);
 }
