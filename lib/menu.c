@@ -88,6 +88,46 @@ void selectBoard(bool err, int *opsiBoard)
 }
 
 /**
+ * Procedure for rematch the game.
+ */
+void rematch(bool err, int mode, int bot, int board, char *player1, char *player2)
+{
+
+  int input;
+
+  // Out the error msg
+  if (err)
+  {
+    printf("\033[1;31m[ERR]\t\033[1;0mInvalid input. Try again.");
+  }
+
+  printf("\n\n1. Rematch");
+  printf("\n2. Go back to main menu");
+  printf("\n3. Exit game");
+  printf("\n\nPlease enter a number between 1-3: ");
+  scanf("%d", &input);
+  getchar(); // clear input; resolve the infinity loop
+
+  // conditional for user input
+  switch (input)
+  {
+  case 1:
+    tictactoe(mode, bot, board, player1, player2);
+    break;
+  case 2:
+    menu(0);
+    break;
+  case 3:
+    exit(0);
+    break;
+  default:
+    // if user not type 1 OR 2 OR 3; then repreat this procedure with error msg
+    rematch(1, mode, bot, board, player1, player2);
+    break;
+  }
+}
+
+/**
  * Procedure for display information about the games.
  */
 void about()
@@ -161,6 +201,8 @@ void playMenu()
     playername2 = "";
   }
   tictactoe(mode, bot, board, playername1, playername2);
+
+  rematch(0, mode, bot, board, playername1, playername2);
 }
 
 /**
