@@ -411,7 +411,7 @@ void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int 
       if (board[row][col].str == " ")
       {
         board[row][col].str = PLAYER1SYMBOL;
-        system("cls");
+        (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
         showBoard(board, hintBoard);
         moveCount++;
         if (gameOver(board))
@@ -454,7 +454,7 @@ void playPvC(Board **board, Board **hintBoard, char *player, int whoseTurn, int 
       col = thisMove.col;
 
       board[row][col].str = PLAYER2SYMBOL;
-      system("cls");
+      (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
       showBoard(board, hintBoard);
       moveCount++;
       if (gameOver(board))

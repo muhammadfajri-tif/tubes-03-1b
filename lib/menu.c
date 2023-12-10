@@ -6,7 +6,7 @@
  */
 void selectGameMode(bool err, int *opsiMode)
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   printf("====================================\n");
   printf("|\tTic Tac Toe by BIG R\t   |\n");
@@ -38,7 +38,7 @@ void selectGameMode(bool err, int *opsiMode)
  */
 void selectBot(bool err, int *opsiBot)
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   printf("====================================\n");
   printf("|\tTic Tac Toe by BIG R\t   |\n");
@@ -67,7 +67,7 @@ void selectBot(bool err, int *opsiBot)
  */
 void selectBoard(bool err, int *opsiBoard)
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   printf("====================================\n");
   printf("|\tTic Tac Toe by BIG R\t   |\n");
@@ -95,7 +95,7 @@ void selectBoard(bool err, int *opsiBoard)
  */
 void about()
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   printf("====================================\n");
   printf("|\tTic Tac Toe by BIG R\t   |\n");
@@ -118,7 +118,7 @@ void about()
  */
 void scoreMenu()
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   printf("\n\t\t\033[1;32mLEADERBOARD\033[1;0m\n");
   loadScoreboard();
@@ -135,7 +135,7 @@ void scoreMenu()
  */
 void playMenu()
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   int mode;
   int bot = 0;
@@ -151,7 +151,7 @@ void playMenu()
   }
 
   selectBoard(0, &board);
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
   printf("Player 1\n");
   inputUsername(playername1);
   if (mode == 2)
@@ -171,7 +171,7 @@ void playMenu()
  */
 void menu(bool err)
 {
-  system("cls");
+  (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
 
   int opsiMenu;
 

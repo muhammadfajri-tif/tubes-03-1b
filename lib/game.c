@@ -249,7 +249,7 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
       if (board[row][col].str == " ")
       {
         board[row][col].str = PLAYER1SYMBOL;
-        system("cls");
+        (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
         showBoard(board, hintBoard);
         moveCount++;
         if (gameOver(board))
@@ -277,7 +277,7 @@ void playPvP(Board **board, Board **hintBoard, char *player1, char *player2, int
       if (board[row][col].str == " ")
       {
         board[row][col].str = PLAYER2SYMBOL;
-        system("cls");
+        (PLATFORM_NAME == "windows") ? system("cls") : system("clear");
         showBoard(board, hintBoard);
         moveCount++;
         if (gameOver(board))
