@@ -18,7 +18,7 @@ void selectGameMode(bool err, int *opsiMode)
   }
   printf("1. Player vs Computer\n");
   printf("2. Player vs Player\n");
-  printf("\n0.Back\n\n");
+  printf("Press ENTER to go back \n\n");
 
   printf("Please choose a number between 1-2: ");
   scanf("%d", &(*opsiMode));
@@ -27,11 +27,14 @@ void selectGameMode(bool err, int *opsiMode)
   {
     selectGameMode(1, opsiMode);
   }
-  else if (*opsiMode == 0)
-  {
-    playMenu();
+  else{
+    getchar();
+    getchar();
+
+    menu(0);
   }
 }
+
 
 /**
  * Procedure for setting computer/bot difficulty.
@@ -51,7 +54,7 @@ void selectBot(bool err, int *opsiBot)
   printf("1. Easy Computer\n");
   printf("2. Medium Computer\n");
   printf("3. Hard Computer\n");
-  printf("\n0.Back\n");
+  printf("\nPress ENTER to go back \n");
 
   printf("Please choose a number between 1-3: ");
   scanf("%d", &(*opsiBot));
@@ -59,6 +62,12 @@ void selectBot(bool err, int *opsiBot)
   if (*opsiBot != 1 && *opsiBot != 2 && *opsiBot != 3)
   {
     selectBot(1, opsiBot);
+  }
+  else {
+    getchar();
+    getchar();
+
+    menu(0);
   }
 }
 
