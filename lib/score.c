@@ -150,22 +150,65 @@ void displaySortedScoreboard(PlayerScore player[], int size)
   PlayerScore key, playerTemp;
 
   // sorting desc
-  for (i = 1; i < size; i++)
-  {
-    key = player[i];
-    playerTemp = player[i];
-    j = i - 1;
+  // for (i = 1; i < size; i++)
+  // {
+  //   key = player[i];
+  //   playerTemp = player[i];
+  //   j = i - 1;
 
-    while (j >= 0 && player[j].score < key.score)
-    {
-      player[j + 1] = player[j];
-      j--;
-    }
+  //   while (j >= 0 && player[j].score < key.score)
+  //   {
+  //     player[j + 1] = player[j];
+  //     j--;
+  //   }
 
-    player[j + 1] = playerTemp;
-  }
+  //   player[j + 1] = playerTemp;
+  // }
+
+  quicksort(player, 0, size - 1);
+
   // output the sorted score board
   renderScoreboardTable(player, size);
+}
+
+void quicksort(PlayerScore player[], int idxAwal, int idxAkhir){
+  int i, j, pivot;
+  PlayerScore temp;
+
+  /**
+   * Dijalankan hanya jika idxAwal lebih kecil dari idxAkhir.
+  */
+  if (idxAwal < idxAkhir)
+  {
+    // Memilih index awal sebagai pivot
+    pivot = idxAwal;
+    i = idxAwal;
+    j = idxAkhir;
+    while (i < j)
+    {
+      while ((player[i].score >= player[pivot].score) && (i < idxAkhir))
+      {
+        i++;
+      }
+      while (player[j].score < player[pivot].score)
+      {
+        j--;
+      }
+
+      // Swap
+      if (i < j)
+      {
+        temp = player[i];
+        player[i] = player[j];
+        player[j] = temp;
+      }
+    }
+    temp = player[pivot];
+    player[pivot] = player[j];
+    player[j] = temp;
+    quicksort(player, idxAwal, j - 1);
+    quicksort(player, j + 1, idxAkhir);
+  }
 }
 
 /**

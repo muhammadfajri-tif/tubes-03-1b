@@ -62,6 +62,8 @@ void renderScoreboardTable(PlayerScore *player, int size);
  */
 void displaySortedScoreboard(PlayerScore player[], int size);
 
+void quicksort(PlayerScore player[], int idxAwal, int idxAkhir);
+
 /**
  * Procedure for load all data from file scoreboard.
  *
