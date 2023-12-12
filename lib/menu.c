@@ -23,14 +23,20 @@ void selectGameMode(bool err, int *opsiMode)
   printf("Please choose a number between 1-2: ");
   scanf("%d", &(*opsiMode));
 
-  if (*opsiMode != 1 && *opsiMode != 2)
-  {
-    selectGameMode(1, opsiMode);
-  }
-  else if (*opsiMode == 0)
-  {
-    playMenu();
-  }
+  switch (*opsiMode){
+  	case 1:
+  		selectGameMode(1,opsiMode);
+		break;
+	case 2:
+		selectGameMode(1,opsiMode);
+		break;
+	case 3:
+		playMenu();
+		break;
+	}
+	while (*opsiMode == getchar()){
+		printf("Please enter a Number!");
+	}
 }
 
 /**
@@ -56,10 +62,23 @@ void selectBot(bool err, int *opsiBot)
   printf("Please choose a number between 1-3: ");
   scanf("%d", &(*opsiBot));
 
-  if (*opsiBot != 1 && *opsiBot != 2 && *opsiBot != 3)
-  {
-    selectBot(1, opsiBot);
-  }
+  switch (*opsiBot){
+  	case 1:
+  		selectBot(1,opsiBot);
+		break;
+	case 2:
+		selectBot(1,opsiBot);
+		break;
+	case 3:
+		selectBot(1,opsiBot);
+		break;
+	case 4:
+		selectGameMode();
+		break;
+	}
+	while (*opsiBot == getchar()){
+		printf("Please enter a Number!");
+	}
 }
 
 /**
